@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class shopping{
+class market{
 	private:
 		int pcode;
 		float price;
@@ -22,7 +22,7 @@ class shopping{
 			void receipt();
 };
 
-void shopping :: menu(){
+void market :: menu(){
 	m:
 	int option;
 	string email;
@@ -78,7 +78,7 @@ goto m;
 	
 
 
-void shopping::admin(){
+void market::admin(){
 	
 	m:
 	int option;
@@ -116,7 +116,7 @@ void shopping::admin(){
 	goto m;
 }
 
-void shopping::customer(){
+void market::customer(){
 	
 	m:
 	int option;
@@ -143,7 +143,7 @@ void shopping::customer(){
 	
 }
 
-void shopping::add(){
+void market::add(){
 	
 	m:
 	fstream data;
@@ -156,11 +156,11 @@ void shopping::add(){
 	cout<<"\n\n\t Add new product";
 	cout<<"\n\n\t Product code:  ";
 	cin>>pcode;
-	cout<<"\n\n\t Product name? : ";
+	cout<<"\n\n\t Product name : ";
 	cin>>pname;
-	cout<<"\n\n\t Product price? : ";
+	cout<<"\n\n\t Product price : ";
 	cin>>price;
-	cout<<"Product discount? :";
+	cout<<"\n\n\t Product discount :";
 	cin>>disc;
 	
 	data.open("datafile.txt",ios::in);
@@ -202,7 +202,7 @@ void shopping::add(){
 	
 }
 
-void shopping::edit(){
+void market::edit(){
 	
 	fstream data,data1;
 	int pkey;
@@ -264,7 +264,7 @@ void shopping::edit(){
 	
 }
 
-void shopping::del()
+void market::del()
 {
 	fstream data,data1;
 	int pkey;
@@ -310,7 +310,7 @@ void shopping::del()
 	
 }
 
-void shopping::list()
+void market::list()
 {
 	fstream data;
 	data.open("datafile.txt",ios::in);
@@ -327,7 +327,7 @@ void shopping::list()
 	
 }
 
-void shopping::receipt()
+void market::receipt()
 {
 	m:
 	fstream data;
@@ -413,6 +413,6 @@ void shopping::receipt()
 
 int main()
 {
-	shopping a;
+	market a;
 	a.menu();
 }
