@@ -1,9 +1,11 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<sstream>
 
 using namespace std;
 
+string numerr="Please enter a number only";
 class market{
 	private:
 		int pcode;
@@ -24,7 +26,7 @@ class market{
 
 void market :: menu(){
 	m:
-	int option;
+	string option;
 	string email;
 	string password;
 	
@@ -39,49 +41,60 @@ void market :: menu(){
 	cout<<"         2. Customer                  "<<endl;
 	cout<<endl;
 	cout<<"         3. Exit                  "<<endl;
-	cout<<endl;
-	cout<<"\n 	Please select your option:";
-	cin>>option;
+	cout<<endl;	
+	//catch strings should be integers only
 	
-	switch(option){
-		case 1:
-			cout<<"		Please Login	"<<endl;
-			cout<<"		Enter Email		: ";
-			cin>>email;
-			cout<<"		Enter password	: ";
-			cin>>password;
-			if(email=="admin@mail.com" && password=="admin01#")
-			{
-				admin();
-			}
-			else{
-				cout<<"Invalid email or password"<<endl;
-			}
-			
-			break;
-		
-		case 2:
-			customer();
-			break;
-		
-		case 3:
-			exit(0);
-			break;
-			
-		default:
-			cout<<"Please select from the given options!"<<endl;
-			
-	}
+		cout<<"\n 	Please select your option:";
+		cin>>option;
+		if(option!="1" ||option != "2" || option !="3"){
+			cout<<"Please select the given numbers "<<endl;
+			goto m;
+		}
+		int opt=stoi(option);
 	
-goto m;
+		switch(opt){
+			case 1:
+				cout<<"		Please Login	"<<endl;
+				cout<<"		Enter Email		: ";
+				cin>>email;
+				cout<<"		Enter password	: ";
+				cin>>password;
+				if(email=="admin@mail.com" && password=="admin01#")
+				{
+					admin();
+				}
+				else{
+					cout<<"Invalid email or password"<<endl;
+				}
+				
+				break;
+			
+			case 2:
+				customer();
+				break;
+			
+			case 3:
+				exit(0);
+				break;
+				
+			default:
+				cout<<"Please select from the given options!"<<endl;
+				
+		}
+		
+	
+	
+
+	goto m;	
 }
+
 	
 
 
 void market::admin(){
 	
 	m:
-	int option;
+	string option;
 	cout<<"\n\n\n\t\t\tAdministrator menu";
 	cout<<"\n\t\t\t__1. Add product \t";
 	cout<<endl;
@@ -94,8 +107,12 @@ void market::admin(){
 	cout<<endl;
 	cout<<"\n\t\t\t Please enter your choice: ";
 	cin>>option;
-	
-	switch(option){
+		if(option!="1" ||option != "2" || option !="3"){
+			cout<<"Please select the given numbers "<<endl;
+			goto m;
+		}
+		int	opt=stoi(option);
+	switch(opt){
 		case 1:
 			add();
 			break;
@@ -127,8 +144,11 @@ void market::customer(){
 	cout<<endl;
 	cout<<"\n\t\t\t__2. Enter your option: ";
 	cin>>option;
-	
-	switch(option){
+		if(option!="1" ||option != "2" || option !="3"){
+			cout<<"Please select the given numbers "<<endl;
+			goto m;
+		}
+	switch(stoi(option)){
 		case 1:
 			receipt();
 			break;
@@ -234,7 +254,7 @@ void market::edit(){
 				cout<<"\n\t Enter product name: ";
 				cin>>p;
 				cout<<"\n\t Enter price :";
-				cin>>p;
+				cin>>n;
 				cout<<"\n\t Enter Discount: ";
 				cin>>d;
 				data1<<" "<<c<<" "<<n<<" "<<p<<" "<<d<<"\n";

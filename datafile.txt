@@ -1,3 +1,4 @@
- 1 bread 16 10
- 2 beef 99.92 30
- 3 pap 70 20
+ 1 bread 17 0
+ 1 bread 17 0
+ 2 meat 99.95 0
+ 3 milk 25.22 10.22
